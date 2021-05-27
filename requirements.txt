@@ -1,0 +1,7 @@
+Django==3.0
+Pillow==2.6.1
+django-crispy-forms==1.11.2
+psycopg2-binary>=2.8
+django-allauth==0.44.0
+oauthlib==3.1.0
+fontawesome-free==version_number

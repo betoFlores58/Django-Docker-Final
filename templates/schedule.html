@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block contenido %} 
+<br>
+<h2>Juegos</h2>
+<br>
+    <div class="row">
+    <div class="col-6">
+    <ul class="list-group list-group-horizontal">
+<li style="width: 84px;" class="list-group-item">Liga</li>
+  <li style="width: 166px;" class="list-group-item">Visitante</li>
+  <li style="width: 49px;" class="list-group-item"></li>
+  <li style="width: 190px;" class="list-group-item">Local</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="45px" src="{% static 'img/mlb.png' %}" alt=""></li>
+  <li  class="list-group-item">New York Yankees</li>
+  <li  class="list-group-item">vs</li>
+  <li style="width: 190px;" class="list-group-item">Toronto Blue Jays</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="45px" src="{% static 'img/nfl.png' %}" alt=""></li>
+  <li style="width: 166px;" class="list-group-item">Dallas Cowboys</li>
+  <li class="list-group-item">vs</li>
+  <li style="width: 190px;" class="list-group-item">Minnesota Vikings</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="10rem;" src="{% static 'img/nba.png' %}" alt=""></li>
+    <li style="width: 166px;" class="list-group-item">Boston Celtics</li>
+    <li class="list-group-item">vs</li>
+    <li style="width: 190px;" class="list-group-item">New Orleans Hornets</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="45px" src="{% static 'img/nfl.png' %}" alt=""></li>
+  <li style="width: 166px;" class="list-group-item">Philadelphia Eagles</li>
+  <li class="list-group-item">vs</li>
+  <li style="width: 190px;" class="list-group-item">Tampa Bay Bucaneers</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="10rem;" src="{% static 'img/nba.png' %}" alt=""></li>
+    <li style="width: 166px;" class="list-group-item">Houston Rockets</li>
+    <li class="list-group-item">vs</li>
+    <li style="width: 190px;"class="list-group-item">Toronto Raptors</li>
+</ul>
+<ul class="list-group list-group-horizontal">
+    <li class="list-group-item"><img class="img-thumbnail" width="50px" height="45px" src="{% static 'img/nfl.png' %}" alt=""></li>
+  <li style="width: 166px;" class="list-group-item">Green Bay Packers</li>
+  <li class="list-group-item">vs</li>
+  <li style="width: 190px;" class="list-group-item">Arizona Cardinals</li>
+</ul>
+    </div>
+    <div class="col">
+            <p><button class="btn btn-secondary" onclick="myMove()">Click Me</button></p> 
+
+<div id ="container">
+  <div id ="animate"></div>
+</div>
+    </div>
+  </div>
+
+<style>
+#container {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: hsl(135, 100%, 50%);
+}
+#animate {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 100%;
+  background-color: rgb(102, 2, 2);
+}
+</style>
+<body>
+
+<script>
+var id = null;
+function myMove() {
+  var elem = document.getElementById("animate");   
+  var pos = 0;
+  clearInterval(id);
+  id = setInterval(frame, 5);
+  function frame() {
+    if (pos == 350) {
+      clearInterval(id);
+    } else {
+      pos++; 
+      elem.style.top = pos + "px"; 
+      elem.style.left = pos + "px"; 
+    }
+  }
+}
+</script>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block contenido %} 
+<br>
+<h2>Estadios</h2>
+{% for e in estadios %}
+        <div class="col-auto">
+            <div class="card-group">
+                <div style="height: min-content" class="card">
+                    <div class="card-header">
+                        <h3>{{e.nombre}}</h3>
+                    </div>
+                    <img src="{{ e.imagen.url}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                    Ciudad: <strong>{{e.ciudad}}</strong>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Capacidad: {{e.capacidad}} personas</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %} 
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+    {% block contenido %} 
+    <style>
+        body{
+            background: #a6cfe9;  /* fallback for old browsers */
+        }
+    </style>
+    <body>
+        <br>
+        <form method="post" novalidate>{% csrf_token %}
+            <div class="row">
+                <div class="col-8">
+                    <h2 style="color: rgb(30, 59, 1);">Agrega un nuevo equipo</h2>
+                    {{form.status|as_crispy_field}}
+                    {{form.nombre|as_crispy_field}}
+                    {{form.logo|as_crispy_field}}
+                    {{form.fechaJuego|as_crispy_field}}
+                    {{form.estadio|as_crispy_field}}
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </body>
+        <br>
+{% endblock %} 

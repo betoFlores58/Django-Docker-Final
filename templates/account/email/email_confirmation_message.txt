@@ -1,0 +1,8 @@
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}
+{% user_display user as user_display %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Estas recibiendo este emial por que el usuario: {{ user_display }} ha dado tu email para registrarse con el. {{ site_domain }}
+
+Para confirmar que esta correcto, ve a {{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock %}

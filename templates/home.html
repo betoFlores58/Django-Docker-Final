@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block contenido %} 
+<br>
+<h2>Equipos</h2>
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+{% for e in team %}
+        <div class="col-auto">
+            <div class="card-group">
+                <div style="height: min-content" class="card">
+                    <div class="card-header">
+                        {{e.nombre}}
+                    </div>
+                    {% if e.logo %}
+                    <img width="" height="290rem" src=" {{ e.logo.url|default_if_none:'#'}}" class="card-img-top" alt="">
+                    {% endif %}
+                    <div class="card-footer">
+                        {% if e.status == 0 %}
+                        <small>Status: <strong>Activo</strong></small><br>
+                        {% else %}
+                        <small>Status: <strong>No Activo</strong></small><br>
+                        {% endif %}
+                        <small>Fecha de siguiente juego: <strong>{{e.fechaJuego}}</strong></small><br>
+                        <small class="text-muted">Estadio: <strong>{{e.estadio}}</strong></small><br>
+                    </div>                    
+                    {% if user.is_superuser %}
+                    <a class="btn btn-warning" href="{% url 'editar' e.pk %}" role="button"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger" href="{% url 'eliminar' e.pk %}" role="button"><i class="fa fa-trash"></i></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %} 
+    </div>
+</div>
+<br>
+<center>
+    {% if user.is_superuser %}
+    <a style="color: green; font-weight: bold;" class="btn btn-outline-ligth" href="{% url 'nuevo' %}" role="button">ADD NEW TEAM <i class="fa fa-plus"></i></a><br>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <a class="btn btn-danger" href="{% url 'account_change_password'%}" role="button"><i class="fa fa-cog"> Cambiar contraseña</i></a>
+    {% endif %}
+</center>
+<br>
+{% endblock %}

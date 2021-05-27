@@ -1,0 +1,45 @@
+body {
+    margin: 20px;
+    font-family: 'Lato';
+    font-weight: 300;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+button {
+    background: orange;
+    color: white;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Lato';
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    background: blue;
+}
+
+#anime-demo {
+    text-align: left;
+}
+
+.square {
+    pointer-events: none;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: cornflowerblue;
+    margin: 4px;
+    display: inline-block;
+}
+
+.blue {
+    background: blue;
+}
+
+.controls {
+    margin-top: 100px;
+}
