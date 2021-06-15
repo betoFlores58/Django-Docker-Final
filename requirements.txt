@@ -4,4 +4,7 @@ django-crispy-forms==1.11.2
 psycopg2-binary>=2.8
 django-allauth==0.44.0
 oauthlib==3.1.0
-fontawesome-free==version_number
+stripe==2.57.0
+whitenoise==5.2.0
+gunicorn==20.1.0
+dj-database-url==0.5.0

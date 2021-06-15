@@ -12,5 +12,4 @@ RUN pip install Pillow
 RUN pip install django-crispy-forms
 RUN pip install django-allauth
 
-
 COPY . /code/

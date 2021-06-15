@@ -1,6 +1,8 @@
-{% extends "account/base.html" %}
+<br>
+&nbsp;{% extends "account/base.html" %}
 
 {% load i18n %}
+{% load socialaccount %}
 {% load account socialaccount %}
 
 {% block head_title %}{% trans "Inicia Sesión" %}{% endblock %}
@@ -17,19 +19,11 @@
 
 {% load crispy_forms_tags %}
 
-{% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
-for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-<div class="socialaccount_ballot">
-
-  <ul class="socialaccount_providers">
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
-
+<div class="container">
+  {% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Por favor registrate con alguno de nuetros provedores third party o <a href="{{ signup_url }}">registrate</a>
+para el sitio: <strong>{{ site_name }}</strong> ingresando las credenciales aquí abajo:{% endblocktrans %}</p>
+  
 </div>
 
 {% include "socialaccount/snippets/login_extra.html" %}
@@ -45,9 +39,16 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Olvidaste tu contraseña?" %}</a>
-  <button class="btn btn-success" type="submit">{% trans "Inicia Sesión" %}</button>
+  <br>
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Olvidaste tu contraseña?" %}</a><br><br>
+  <button style="align-content: center;" class="btn btn-success" type="submit">{% trans "Inicia Sesión" %}</button>
 </form>
+<br>
+
+<div class="socialaccount_ballot">
+  <a class="btn btn-dark" type="button" href="{% provider_login_url "github" method="oauth2" %}"><i class="fa fa-github"></i>&nbsp;Github</a>
+  <a class="btn btn-danger" type="button" href="{% provider_login_url "google" method="oauth2" %}"><i class="fa fa-google"></i> Google</a>
+</div>
 <br>
 {% endblock %}
 

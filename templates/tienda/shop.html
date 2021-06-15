@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block contenido %} 
+<br>
+<h2><i class="fa fa-shopping-basket"></i> Tienda</h2>
+<br>
+{% for e in productos %}
+<ul style="align-content: flex-end;" class="list-group">
+    <li class="list-group-item">
+        <img src="{{ e.imagen }}" class="img-thumbnail" alt=""/> <span>{{e.articulo}}</span> ${{e.precio}} <a type="button" class="btn btn-info" href="{% url 'orders' e.pk %}">Stripe</a>&nbsp;<a style="align-content: flex-end;" type="button" class="btn btn-warning" href="{% url 'checkout' e.pk %}"><i class="fa fa-paypal"></i></a> <span style="align-content: flex-end;">Disponibilidad: {% if e.stock == 0 %}<i style="color: chartreuse;" class="fa fa-check"></i>{% else %}<i style="color: red;" class="fa fa-times"></i>{% endif %}</span>
+    </li>
+</ul>
+{% endfor %}
+<br><br>
+{% endblock %} 

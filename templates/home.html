@@ -24,8 +24,10 @@
                         <small>Fecha de siguiente juego: <strong>{{e.fechaJuego}}</strong></small><br>
                         <small class="text-muted">Estadio: <strong>{{e.estadio}}</strong></small><br>
                     </div>                    
-                    {% if user.is_superuser %}
+                    {% if user.is_staff %}
                     <a class="btn btn-warning" href="{% url 'editar' e.pk %}" role="button"><i class="fa fa-edit"></i></a>
+                    {% endif %}
+                    {% if user.is_superuser %}
                     <a class="btn btn-danger" href="{% url 'eliminar' e.pk %}" role="button"><i class="fa fa-trash"></i></a>
                     {% endif %}
                 </div>
@@ -36,7 +38,7 @@
 </div>
 <br>
 <center>
-    {% if user.is_superuser %}
+    {% if user.is_staff %}
     <a style="color: green; font-weight: bold;" class="btn btn-outline-ligth" href="{% url 'nuevo' %}" role="button">ADD NEW TEAM <i class="fa fa-plus"></i></a><br>
     {% endif %}
     {% if user.is_authenticated %}

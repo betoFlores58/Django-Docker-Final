@@ -30,9 +30,6 @@ class Equipo(models.Model):
     def __str__(self):
         return self.nombre
 
-def get_absolute_url(self):
-        return reverse('modelos', args=[str(self.id)])
-
 class Extra(models.Model):
     rival = models.ForeignKey(
         Equipo,
@@ -45,3 +42,6 @@ class Extra(models.Model):
 
     def __str__(self):
         return self.historia
+
+def get_absolute_url(self):
+        return reverse('modelos', args=[str(self.id)])
