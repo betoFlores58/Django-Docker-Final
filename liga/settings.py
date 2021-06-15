@@ -95,9 +95,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'liga.wsgi.application'
 
-ALLOWED_HOSTS ={
-    '.herokuapp.com','localhost','127.0.0.1','0.0.0.0'
-}
+ALLOWED_HOSTS = ['.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
