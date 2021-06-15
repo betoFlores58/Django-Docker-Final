@@ -9,6 +9,7 @@ stripe = "*"
 whitenoise = "*"
 gunicorn = "*"
 dj-database-url = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
