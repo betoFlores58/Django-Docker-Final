@@ -11,6 +11,7 @@ gunicorn = "*"
 dj-database-url = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
+pillow = "*"
 
 [dev-packages]
 
