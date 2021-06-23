@@ -15,7 +15,7 @@ SECRET_KEY = '17ktgx_b4uon6+hm&fm6+q+%tvc)n%$%rt+9+h7pn*k12$7e2f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+#ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -44,7 +44,6 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 # Application definition
 
 INSTALLED_APPS = [
-    'debug_toolbar',
     'teams',
     'tienda',
     'allauth',
@@ -62,6 +61,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -180,5 +180,10 @@ STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+def show_toolbar(request):
+    return True
+SHOW_TOOLBAR_CALLBACK = show_toolbar
+
 # #Heroku
 # DATABASES['default'] =  dj_database_url.config()
