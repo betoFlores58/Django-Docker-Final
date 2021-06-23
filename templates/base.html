@@ -17,14 +17,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'calendario'%}"><i class="fa fa-calendar"></i> Schedule</a>
         </li>
+        <li class="nav-item">
+            <form class="d-flex" enctype="multipart/form-data" action="{% url 'search_results' %}" method="POST">{% csrf_token %}
+                <button class="btn btn-success" type="submit">Search</button>&nbsp;
+                <input class="form-control me-2" type="text" placeholder="Search" name="search" aria-label="Search">
+            </form>
+        </li>
     </ul>
     </div>
 </div>
 <nav class="navbar sticky-top navbar-dark bg-dark">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-        </span>
+        <span class="navbar-toggler-icon"></span>
         </button>
     {% if user.is_authenticated %}
         <a  class="btn btn-danger" href="{% url 'account_logout' %}" role="button">
@@ -50,7 +55,7 @@
 <br>
 <footer class="text-center text-white" style="background-color: #161515;">
   <div class="container p-4">
-    <a  class="btn btn-secondary" href="{% url 'shop' %}" role="button"><i class="fa fa-shopping-cart"></i> Tienda Oficial</a>
+    <a  class="btn btn-secondary" href="{% url 'shop' %}" role="button"><i class="fa fa-shopping-cart"></i> Tienda Oficial {% if user.is_active %} '{{user.username}}' {% else %} 'Invitado' {% endif %} </a>
   </div>
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:

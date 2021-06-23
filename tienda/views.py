@@ -9,15 +9,15 @@ from django.db.models import Q
 
 class TiendaListView(ListView):
     model = Tienda
+    context_object_name = 'productos'
     template_name = 'tienda/shop.html'
-    context_object_name = "productos"
 
-class CheckoutTemplateView(TemplateView):
-    model=Tienda
-    context_object_name = 'prods'
+class CheckoutTemplateView(ListView):
+    model = Tienda
+    context_object_name = 'productos'
     template_name = 'tienda/checkout.html'
 
 class SearchListView(ListView):
-    model=Tienda
-    context_object_name = 'articulos'
+    model = Tienda
+    context_object_name = 'productos'
     template_name = 'tienda/search_results.html'

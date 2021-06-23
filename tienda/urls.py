@@ -5,6 +5,6 @@ from django.urls import path
 
 urlpatterns=[
     path('',TiendaListView.as_view(),name='shop'),
-    path('search/',SearchListView.as_view(),name="search_result"),
-    path('checkout/<int:pk>',CheckoutTemplateView.as_view(),name="checkout"),
+    path('search/',SearchListView.as_view(),name='search_result'),
+    path('checkout/<int:pk>/',CheckoutTemplateView.as_view(),name='checkout'),
 ]

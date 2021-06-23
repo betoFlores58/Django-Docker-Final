@@ -11,16 +11,6 @@
   </head>
   <body>
     {% block body %}
-    {% if messages %}
-    <div>
-      <strong>Mensajes:</strong>
-      &nbsp;<ul>
-        {% for message in messages %}
-        &nbsp;<li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
     <br>
     <div class="container">
       <a class="btn btn-primary" href="{% url 'home' %}" role="button"><i class="fa fa-home"></i> Ir a home</a>

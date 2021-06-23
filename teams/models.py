@@ -30,6 +30,15 @@ class Equipo(models.Model):
     def __str__(self):
         return self.nombre
 
+class Comment(models.Model):
+    post = models.ForeignKey(Equipo,related_name="comments",on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    body = models.TextField(max_length=1000)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
 class Extra(models.Model):
     rival = models.ForeignKey(
         Equipo,

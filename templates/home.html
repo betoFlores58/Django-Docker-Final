@@ -23,7 +23,27 @@
                         {% endif %}
                         <small>Fecha de siguiente juego: <strong>{{e.fechaJuego}}</strong></small><br>
                         <small class="text-muted">Estadio: <strong>{{e.estadio}}</strong></small><br>
-                    </div>                    
+                    </div>
+                    {% if user.is_authenticated %}
+                    <hr>
+                    <div class="container-fluid">
+                    <h5>Comentarios...</h5>
+                    <br>
+                    {% if not e.comments.all %}
+                        No hay comentarios aun <a href="{% url 'nuevo_com' e.pk %}" class="btn btn-primary" role="button">Agregar <i class="fa fa-plus"></i></a>
+                    {% else %}
+                    <a href="{% url 'nuevo_com' e.pk %}" class="btn btn-primary" role="button">Agregar <i class="fa fa-plus"></i></a>
+                        {% for comment in e.comments.all %}
+                        <br>
+                        <strong>{{comment.name}} - {{comment.date_added}}</strong>
+                        <br>
+                        {{comment.body}}
+                        <br>
+                        {% endfor %}
+                    {% endif %}
+                    </div>
+                    <hr>                  
+                    {% endif %}
                     {% if user.is_staff %}
                     <a class="btn btn-warning" href="{% url 'editar' e.pk %}" role="button"><i class="fa fa-edit"></i></a>
                     {% endif %}

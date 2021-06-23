@@ -1,5 +1,5 @@
 from pathlib import Path, os
-import dj_database_url
+#import dj_database_url
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -30,11 +30,16 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email' 
 
-DEFAULT_FROM_EMAIL = 'alberto@django.com'
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST =  'smtp.googlemail.com'
+EMAIL_PORT =  587
+EMAIL_HOST_USER = os.environ.get('USER_MAIL')
+EMAIL_HOST_PASSWORD = os.environ.get('USER_MAIL_PASSWORD')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 # Application definition
 
@@ -135,12 +140,6 @@ AUTH_PASSWORD_VALIDATORS = [
 SITE_ID = 1
 
 
-EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_PORT = os.environ.get('587')
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = os.environ.get('alu.16130067@correo.itlalaguna.edu.mx')
-EMAIL_HOST_PASSWORD = os.environ.get('correoITL.')
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -176,5 +175,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/img')
 STRIPE_TEST_PUBLISHABLE_KEY=os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
 STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 
-#Heroku
-DATABASES['default'] =  dj_database_url.config()
+# #Heroku
+# DATABASES['default'] =  dj_database_url.config()
