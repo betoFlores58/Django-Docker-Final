@@ -12,6 +12,7 @@ dj-database-url = "*"
 django-crispy-forms = "*"
 psycopg2 = "*"
 pillow = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 
