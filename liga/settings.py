@@ -66,8 +66,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
-    'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -179,11 +179,20 @@ STRIPE_TEST_SECRET_KEY=os.environ.get('STRIPE_TEST_SECRET_KEY')
 
 INTERNAL_IPS = [
     '127.0.0.1',
+    '192.168.0.1',
+    '0.0.0.0',
+    'localhost',
 ]
+# DEBUG_TOOLBAR_CONFIG = {
+#     'SHOW_TOOLBAR_CALLBACK': lambda _request: True,
+# }
+DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False,}
 
-def show_toolbar(request):
-    return True
-SHOW_TOOLBAR_CALLBACK = show_toolbar
+# def show_toolbar(request):
+#     return True
+# DEBUG_TOOLBAR_CONFIG = {
+#     "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
+# }
 
-# #Heroku
-# DATABASES['default'] =  dj_database_url.config()
+#Heroku
+DATABASES['default'] =  dj_database_url.config()
