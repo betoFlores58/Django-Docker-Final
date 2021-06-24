@@ -107,28 +107,28 @@ WSGI_APPLICATION = 'liga.wsgi.application'
 ALLOWED_HOSTS = ['proyecto4-16130067-avf.herokuapp.com','localhost','127.0.0.1','0.0.0.0']
 
 # Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+#https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'db',
-#         'PORT': 5432
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd3cv12fr7m8puv',
-        'USER': 'fokxljnthonkjk',
-        'PASSWORD': '7338ab64d3b198f6dd9e56c024505c9e1eca8cc9e9114403bc38313d02339650',
-        'HOST': 'ec2-34-195-143-54.compute-1.amazonaws.com',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': 5432
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd3cv12fr7m8puv',
+#         'USER': 'fokxljnthonkjk',
+#         'PASSWORD': '7338ab64d3b198f6dd9e56c024505c9e1eca8cc9e9114403bc38313d02339650',
+#         'HOST': 'ec2-34-195-143-54.compute-1.amazonaws.com',
+#         'PORT': 5432
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
