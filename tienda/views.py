@@ -14,6 +14,7 @@ class TiendaListView(ListView):
 
 class CheckoutTemplateView(ListView):
     model = Tienda
+    fields = '__all__'
     context_object_name = 'productos'
     template_name = 'tienda/checkout.html'
 

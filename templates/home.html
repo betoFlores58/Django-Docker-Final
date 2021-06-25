@@ -31,12 +31,12 @@
                     <hr>
                     <div class="container-fluid">
                     <h5>Comentarios...</h5>
-                    <br>
                     {% if not e.comments.all %}
                         No hay comentarios aun <a href="{% url 'nuevo_com' e.pk %}" class="btn btn-primary" role="button">Agregar <i class="fa fa-plus"></i></a>
                     {% else %}
                     <a href="{% url 'nuevo_com' e.pk %}" class="btn btn-primary" role="button">Agregar <i class="fa fa-plus"></i></a>
                         {% for comment in e.comments.all %}
+                        <br>
                         <br>
                         <strong>{{comment.name}} - {{comment.date_added}}</strong>
                         <br>

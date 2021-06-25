@@ -4,13 +4,14 @@
 <br><br><br>
 <h2>Pago mediante PayPal</h2>
 <body>
-    <p>Total a pagar: <strong>$ {{productos.precio}} </strong></p>
+    <p>Total a pagar: <strong>$ {{productos.e.precio}} </strong></p>
     <div style="text-align: center;" class="container">
     <!-- Set up a container element for the button -->
     <div id="paypal-button-container"></div>
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AdHaHUB2Ndl8kCY-AcIa2BP7eI6ULHNl1YGT8SoUfPJO-iv6PJmEo3GP1LOoDTRJmNZRfKsTZwxHsY5g&currency=MXN"></script>
     <script>
+        var total = '{{precio}}'
         // Render the PayPal button into #paypal-button-container
         paypal.Buttons({
             // Set up the transaction
@@ -18,7 +19,7 @@
                 return actions.order.create({
                     purchase_units: [{
                         amount: {
-                            value: "{productos.precio}"
+                            value: "0.01"
                         }
                     }]
                 });

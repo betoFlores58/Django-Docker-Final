@@ -15,7 +15,7 @@ SECRET_KEY = '17ktgx_b4uon6+hm&fm6+q+%tvc)n%$%rt+9+h7pn*k12$7e2f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-#ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
@@ -109,26 +109,26 @@ ALLOWED_HOSTS = ['proyecto4-16130067-avf.herokuapp.com','localhost','127.0.0.1',
 # Database
 #https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'postgres',
-#         'USER': 'postgres',
-#         'PASSWORD': 'postgres',
-#         'HOST': 'db',
-#         'PORT': 5432
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'Django.db.backends.postgresql_psycopg2',
-        'NAME': 'd3cv12fr7m8puv',
-        'USER': 'fokxljnthonkjk',
-        'PASSWORD': '7338ab64d3b198f6dd9e56c024505c9e1eca8cc9e9114403bc38313d02339650',
-        'HOST': 'ec2-34-195-143-54.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
         'PORT': 5432
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'Django.db.backends.postgresql_psycopg2',
+#         'NAME': 'd3cv12fr7m8puv',
+#         'USER': 'fokxljnthonkjk',
+#         'PASSWORD': '7338ab64d3b198f6dd9e56c024505c9e1eca8cc9e9114403bc38313d02339650',
+#         'HOST': 'ec2-34-195-143-54.compute-1.amazonaws.com',
+#         'PORT': 5432
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
